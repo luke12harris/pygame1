@@ -28,7 +28,7 @@ running = True
 while running:
 
     #screen color
-    screen.fill(("blue"))
+    screen.fill(("red"))
 
     for event in pygame.event.get():  #an event is any action within the window
 
