@@ -15,8 +15,8 @@ pygame.display.set_caption("Not Mario")
 chungusImage = pygame.image.load("chungus_character_small.png")
 chungusX = 69
 chungusY = 69
-chungusX_change = 0
-chungusY_change = 0
+chungusXChange = 0
+chungusYChange = 0
 
 
 def player(x, y):  #draws chungus
@@ -40,24 +40,25 @@ while running:
         if event.type == pygame.KEYDOWN:  #pressed key
 
             if event.key == pygame.K_LEFT:
-                chungusX_change = -0.5
+                chungusXChange = -0.5
 
             if event.key == pygame.K_RIGHT:
-                chungusX_change = +0.5
+                chungusXChange = +0.5
 
             if event.key == pygame.K_UP:
-                chungusY_change = -0.5
+                chungusYChange = -0.5
 
             if event.key == pygame.K_DOWN:
-                chungusY_change = +0.5
+                chungusYChange = +0.5
 
         if event.type == pygame.KEYUP:  #released key
-            chungusX_change = 0
-            chungusY_change = 0
+            chungusXChange = 0
+            chungusYChange = 0
 
-    chungusX += chungusX_change
-    chungusY += chungusY_change
+    chungusX += chungusXChange
+    chungusY += chungusYChange
 
+    #creates a boarder, chungus can't leave!
     if chungusX < 20:
         chungusX = 20
 
@@ -69,6 +70,7 @@ while running:
 
     if chungusY > 280:
         chungusY = 280
+
     player(chungusX, chungusY)  #updates position
 
     pygame.display.update()
