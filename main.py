@@ -58,17 +58,17 @@ while running:
     chungusX += chungusX_change
     chungusY += chungusY_change
 
-    if chungusX < 0:
-        chungusX = 0
+    if chungusX < 20:
+        chungusX = 20
 
-    if chungusY < 0:
+    if chungusY < 5:
         chungusY = 5
 
     if chungusX > 300:
         chungusX=300
 
-    if chungusY > 300:
-        chungusY = 300
+    if chungusY > 280:
+        chungusY = 280
     player(chungusX, chungusY)  #updates position
 
     pygame.display.update()
