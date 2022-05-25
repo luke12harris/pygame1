@@ -22,10 +22,14 @@ chungusYChange = 0
 def player(x, y):  #draws chungus
     screen.blit(chungusImage, (x, y))
 
+def movement(direction):
+    pass
 
 running = True
+speed = 0.2
 #the game loop
 while running:
+    pygame.time.delay(1)
 
     #screen color
     screen.fill(("red"))
@@ -40,23 +44,36 @@ while running:
         if event.type == pygame.KEYDOWN:  #pressed key
 
             if event.key == pygame.K_LEFT:
-                chungusXChange = -0.5
+                chungusXChange -= speed
 
             if event.key == pygame.K_RIGHT:
-                chungusXChange = +0.5
+                chungusXChange += speed
 
             if event.key == pygame.K_UP:
-                chungusYChange = -0.5
+                chungusYChange -= speed
 
             if event.key == pygame.K_DOWN:
-                chungusYChange = +0.5
+                chungusYChange += speed
 
-        if event.type == pygame.KEYUP:  #released key
-            chungusXChange = 0
-            chungusYChange = 0
+        if event.type == pygame.KEYUP: #released key
+            if event.key == pygame.K_LEFT:
+                chungusXChange += speed
 
-    chungusX += chungusXChange
-    chungusY += chungusYChange
+            if event.key == pygame.K_RIGHT:
+                chungusXChange -= speed
+
+            if event.key == pygame.K_UP:
+                chungusYChange += speed
+
+            if event.key == pygame.K_DOWN:
+                chungusYChange -= speed
+
+    chungusX+=chungusXChange
+    chungusY+=chungusYChange
+
+    for i in range (0,420,60):
+        pygame.draw.line(screen, 'white', (1,i), (600,i), 2)
+        pygame.draw.line(screen, 'white', (i,1), (i,600), 2)
 
     #creates a boarder, chungus can't leave!
     if chungusX < 20:
