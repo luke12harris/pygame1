@@ -22,9 +22,6 @@ chungusYChange = 0
 def player(x, y):  #draws chungus
     screen.blit(chungusImage, (x, y))
 
-def movement(direction):
-    pass
-
 running = True
 speed = 0.2
 #the game loop
