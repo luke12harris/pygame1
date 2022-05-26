@@ -1,14 +1,17 @@
 import socket
 
 #create socket
-serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #address family, socket type
+serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #address family = IPV4, socket type.
 print("socket created")
 
-serverAddress = ("localhost", 9999)
+server = "localhost"
+port = 5555
 
-serverSocket.bind(serverAddress) #address, port
+serverIP = socket.gethostbyname(server)
 
-serverSocket.listen(3) #num of connections
+serverSocket.bind(server, port) #address, port
+
+serverSocket.listen(2) #max num of connections
 print("listening...")
 
 
